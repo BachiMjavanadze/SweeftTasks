@@ -42,7 +42,6 @@ CREATE TABLE Teachers (
 	FOREIGN KEY (SchoolSubjectId) REFERENCES SchoolSubjects(Id)
 );
 
--- insert data
 -- Insert data into SchoolSubjects table
 INSERT INTO SchoolSubjects (Id, Name) VALUES
 (1, N'ქართული'),
@@ -74,7 +73,6 @@ INSERT INTO Teachers (Id, FirstName, LastName, Gender, SchoolSubjectId) VALUES
 (3, N'თომას', N'მანი', 'Male', 3),
 (4, N'ალისა', N'ჩიგოგიძე', 'Female', 4),
 (5, N'ნუკრი', N'ფრთხიალაშვილი', 'Male', 5);
-
 
 -- query
 SELECT DISTINCT t.*
