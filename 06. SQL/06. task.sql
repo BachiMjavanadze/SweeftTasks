@@ -42,7 +42,7 @@ CREATE TABLE Teachers (
 	FOREIGN KEY (SchoolSubjectId) REFERENCES SchoolSubjects(Id)
 );
 
--- Insert data into SchoolSubjects table
+-- Insert data
 INSERT INTO SchoolSubjects (Id, Name) VALUES
 (1, N'ქართული'),
 (2, N'მათემატიკა'),
@@ -50,7 +50,6 @@ INSERT INTO SchoolSubjects (Id, Name) VALUES
 (4, N'ინგლისური'),
 (5, N'გეოგრაფია');
 
--- Insert data into Pupils table
 INSERT INTO Pupils (Id, FirstName, LastName, ClassNumber) VALUES
 (1, N'ჯეირან', N'დიღმელაშვილი', '1A'),
 (2, N'გიორგი', N'აბჟანდაძე', '2B'),
@@ -58,7 +57,6 @@ INSERT INTO Pupils (Id, FirstName, LastName, ClassNumber) VALUES
 (4, N'ანა', N'ირიმლიშვილი', '4D'),
 (5, N'ჯუმბერ', N'ტყაბლაძე', '5E');
 
--- Insert data into PupilSchoolSubjects table
 INSERT INTO PupilSchoolSubjects (PupilId, SubjectId) VALUES
 (1, 1), (1, 2), (1, 3),
 (2, 2), (2, 4), 
@@ -66,7 +64,6 @@ INSERT INTO PupilSchoolSubjects (PupilId, SubjectId) VALUES
 (4, 2), (4, 4), (4, 5),
 (5, 1), (5, 2);
 
--- Insert data into Teachers table
 INSERT INTO Teachers (Id, FirstName, LastName, Gender, SchoolSubjectId) VALUES
 (1, N'ბადრი', N'ესებუა', 'Male', 1),
 (2, N'მირიან', N'მაღრაძე', 'Female', 2),
