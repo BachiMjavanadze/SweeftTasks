@@ -27,21 +27,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-/* Database Migrations CLI Commands
- *
- * Add the "--verbose" flag to the end of the command if you want to get detailed information in the console.
- * 
-
- Migration:
-
-      dotnet ef migrations add "init" --project "D:\SwiftTasks\07. TeacherPupil\07. TeacherPupil.csproj" --startup-project "D:\SwiftTasks\07. TeacherPupil\07. TeacherPupil.csproj" --context ApplicationDbContext
-
-Update:
-
-      dotnet ef database update --project "D:\SwiftTasks\07. TeacherPupil\07. TeacherPupil.csproj" --startup-project "D:\SwiftTasks\07. TeacherPupil\07. TeacherPupil.csproj" --context ApplicationDbContext
-
-Remove last migration:
-
-      dotnet ef migrations remove --project "FULL_PATH_OF_THE_PROJECT_WHERE_IS_MIGRATIONS_FOLDER" -f
-*/
