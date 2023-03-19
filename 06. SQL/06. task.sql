@@ -72,14 +72,15 @@ INSERT INTO Teachers (Id, FirstName, LastName, Gender, SchoolSubjectId) VALUES
 (5, N'ნუკრი', N'ფრთხიალაშვილი', 'Male', 5);
 
 -- query
-SELECT DISTINCT t.* FROM Teachers t
+SELECT DISTINCT t.*, s.Name AS SubjectName
+FROM Teachers t
 INNER JOIN
-	SchoolSubjects s
-	ON t.SchoolSubjectId = s.Id
+    SchoolSubjects s
+    ON t.SchoolSubjectId = s.Id
 INNER JOIN
-	PupilSchoolSubjects pss
-	ON s.Id = pss.SubjectId
+    PupilSchoolSubjects pss
+    ON s.Id = pss.SubjectId
 INNER JOIN
-	Pupils p
-	ON pss.PupilId = p.Id
+    Pupils p
+    ON pss.PupilId = p.Id
 WHERE p.FirstName = N'გიორგი';
