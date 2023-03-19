@@ -11,7 +11,7 @@ using _07._TeacherPupil.Models;
 namespace _07._TeacherPupil.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230318162845_init")]
+    [Migration("20230319053010_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

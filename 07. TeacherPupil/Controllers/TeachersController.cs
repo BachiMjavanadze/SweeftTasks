@@ -1,4 +1,5 @@
-﻿using _07._TeacherPupil.Models;
+﻿using _07._TeacherPupil.DTO;
+using _07._TeacherPupil.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _07._TeacherPupil.Controllers;
@@ -14,21 +15,18 @@ public class TeachersController : ControllerBase
     }
 
     [HttpGet("GiorgisTeachers")]
-    public async Task<ActionResult<Teacher>> GetGiorgisTeachers()
+    public ActionResult<IEnumerable<TeacherDto>> GetGiorgisTeachers()
     {
-
-        var giorgisTeachers = GetPupil("გიორგი");
-        return Ok(giorgisTeachers);
+        return FilterTeachers("გიორგი");
     }
 
     [HttpGet("{firstName}")]
-    public async Task<ActionResult<Teacher>> GetPupilTeachersByFirstName(string firstName)
+    public ActionResult<IEnumerable<TeacherDto>> GetPupilTeachers(string firstName)
     {
-        List<Teacher> pupilTeacher = GetPupil(firstName);
-        return Ok(pupilTeacher);
+        return FilterTeachers(firstName);
     }
 
-    private List<Teacher> GetPupil(string firstName)
+    private ActionResult<IEnumerable<TeacherDto>> FilterTeachers(string firstName)
     {
         return _context.Teachers
         .Join(_context.SchoolSubjects,
@@ -44,8 +42,15 @@ public class TeachersController : ControllerBase
             pupil => pupil.Id,
             (tsid, pupil) => new { tsid.Teacher, Pupil = pupil })
         .Where(tp => tp.Pupil.FirstName == firstName)
-        .Select(tp => tp.Teacher)
-        .Distinct()
+        .Select(tp => new TeacherDto
+        {
+            Id = tp.Teacher.Id,
+            FirstName = tp.Teacher.FirstName,
+            LastName = tp.Teacher.LastName,
+            SchoolSubject = tp.Teacher.SchoolSubject.Name
+        })
         .ToList();
     }
 }
+
+
