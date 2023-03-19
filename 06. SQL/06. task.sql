@@ -7,10 +7,10 @@
 2. დაწერეთ sql რომელიც დააბრუნებს ყველა მასწავლებელს, რომელიც ასწავლის მოსწავლეს, რომელის სახელია: „გიორგი“ .
 */
 
-CREATE DATABASE School
+CREATE DATABASE School_tp
 GO
 
-USE School;
+USE School_tp;
 
 -- create tables
 CREATE TABLE SchoolSubjects (
