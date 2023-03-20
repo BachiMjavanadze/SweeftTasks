@@ -17,13 +17,13 @@ public class TeachersController : ControllerBase
     [HttpGet("GiorgisTeachers")]
     public ActionResult<IEnumerable<TeacherDto>> GetGiorgisTeachers()
     {
-        return FilterTeachers("გიორგი");
+        return Ok(FilterTeachers("გიორგი"));
     }
 
     [HttpGet("{firstName}")]
     public ActionResult<IEnumerable<TeacherDto>> GetPupilTeachers(string firstName)
     {
-        return FilterTeachers(firstName);
+        return Ok(FilterTeachers(firstName));
     }
 
     private ActionResult<IEnumerable<TeacherDto>> FilterTeachers(string firstName)
