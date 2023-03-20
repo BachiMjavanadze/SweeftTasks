@@ -1,4 +1,8 @@
-﻿namespace _07._TeacherPupil.Controllers;
+﻿using _07._TeacherPupil.DTO;
+using _07._TeacherPupil.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace _07._TeacherPupil.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class TeachersController : ControllerBase
@@ -45,6 +49,7 @@ public class TeachersController : ControllerBase
             LastName = tp.Teacher.LastName,
             SchoolSubject = tp.Teacher.SchoolSubject.Name
         })
+        .Distinct()
         .ToList();
     }
 }
